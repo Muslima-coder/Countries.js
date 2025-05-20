@@ -1,0 +1,48 @@
+@font-face {
+  font-display: swap; 
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/nunito-sans-v15-latin-regular.woff2') format('woff2'); 
+}
+@font-face {
+  font-display: swap; 
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/nunito-sans-v15-latin-600.woff2') format('woff2'); 
+}
+@font-face {
+  font-display: swap; 
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/nunito-sans-v15-latin-800.woff2') format('woff2'); 
+}
+
+body{
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.containers{
+    max-width:1200px ;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+:root {
+  --color-bg: white;
+  --color-text: rgba(17, 21, 23, 1);
+}
+
+.dark {
+  --color-bg: black;
+  --color-text: white;
+}
+
+
+.search-input{
+  background-image: url("../images/search.svg");
+  background-repeat: no-repeat;
+  background-position: 32px center;
+}
