@@ -29,9 +29,9 @@ function renderProduct (arr, list){
     <p> <span class="font-semibold text-[14px] leading-[16px] text-[var(--color-text)]">Capital: </span> ${item.capital}</p>
        </div>
        <div class="flex justify-between px-[24px] pb-[20px]">
-       <button class="border-[1.5px] border-slate-500 rounded-md w-[30%]  hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Like</button>
-       <button class="border-[1.5px] border-slate-500 rounded-md w-[30%]  hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Save</button>
-       <button class="border-[1.5px] border-slate-500 rounded-md w-[30%]  hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">More</button>
+       <button class="border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Like</button>
+       <button class="border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Save</button>
+       <button class="border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">More</button>
        </div>
        
         `
