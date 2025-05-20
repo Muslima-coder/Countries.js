@@ -18,7 +18,7 @@ function renderProduct (arr, list){
     list.innerHTML = null
     arr.forEach(item => {
         let elItem = document.createElement ("li")
-        elItem.className = "w-[264px] rounded-[5px] shadow-md shadow-blue-300"
+        elItem.className = "w-[264px] rounded-[5px] shadow-md shadow-blue-300 mx-auto sm:mx-0"
 
         elItem.innerHTML =`
         <img class="!h-[160px] !w-[260px] object-cover" src="${item.flag}" alt="photo" width="267"  height="160"/>
