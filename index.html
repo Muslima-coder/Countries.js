@@ -8,7 +8,7 @@
     <style type="text/tailwindcss"> </style>
     <link rel="stylesheet" href="./css/main.css">
 </head>
-<body>
+<body class="bg-(--color-bg)">
     <header class="bg-[var(--color-bg)] py-[23px] site-header">
         <div class="containers flex justify-between items-center">
             <h1 class="font-extrabold leading-[20px] text-[15px]  sm:leading-[100%]  sm:text-[24px] text-[var(--color-text)]">Where in the world?</h1>
@@ -18,7 +18,7 @@
   <path fill-rule="currentColor" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
 </svg>
-                    <span6>Saved</span6
+                    <span>Saved</span>
                 </button>
                 <button class="hidden sm:flex border-[2px] border-[var(--color-text)] cursor-pointer p-[5px] rounded-md font-semibold text-[16px] text-[var(--color-text)] flex gap-[5px] items-center hover:border-blue-600 hover:text-blue-600 duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
@@ -26,11 +26,11 @@
 </svg>
                     <span>Liked</span>
                 </button>
-                <button class="border-[2px] border-[var(--color-text)] cursor-pointer p-[3px] sm:p-[5px] rounded-md flex gap-[5px] items-center hover:border-blue-600 hover:text-blue-600 duration-300">
+                <button id="darkMBtn" class="border-[2px] border-[var(--color-text)] cursor-pointer p-[3px] sm:p-[5px] rounded-md font-semibold text-[16px] text-[var(--color-text)] flex gap-[5px] items-center hover:border-blue-600 hover:text-blue-600 duration-300">
                     <svg width="18" height="17" viewBox="0 0 18 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5532 11.815C8.66857 11.815 5.51929 8.92783 5.51929 5.36821C5.51929 4.0253 5.96679 2.78158 6.73143 1.75C3.69036 2.69515 1.5 5.33122 1.5 8.43807C1.5 12.3385 4.94929 15.5 9.20357 15.5C12.5929 15.5 15.4696 13.4932 16.5 10.7045C15.375 11.4048 14.0161 11.815 12.5532 11.815Z" fill="currentColor" stroke="currentColor" stroke-width="1.25"/>
 </svg>
-                    <span >Dark mode</span>
+                    <span>Dark mode</span>
                 </button>
             </div>
         </div>
@@ -39,8 +39,8 @@
     <main>
         <section class="pt-[48px]">
             <div class="containers flex flex-col sm:flex-row  sm:justify-between">
-                <input class="mb-[40px] w-[343px] sm:mb-[0px] search-input sm:w-[480px] py-[19px] pl-[74px] rounded-[5px] outline-none shadow-md focus:shadow-blue-500" type="text" placeholder="Search for a country...">
-                <select class="choose-select w-[200px] py-[22px] px-[24px] rounded-[5px] outline-none shadow-md focus:shadow-blue-500">
+                <input class="text-[var(--color-text)] mb-[40px] w-[343px] sm:mb-[0px] search-input sm:w-[480px] py-[19px] pl-[74px] rounded-[5px] outline-none shadow-md focus:shadow-blue-500" type="text" placeholder="Search for a country...">
+                <select class="text-[var(--color-text)] choose-select w-[200px] py-[22px] px-[24px] rounded-[5px] outline-none shadow-md focus:shadow-blue-500">
                     <option selected disabled class="font-normal text-[14px] leading-[20px] text-[var(--color-text)]" value="all">Filter by Capital</option>
                 </select>
             </div>
