@@ -2,7 +2,11 @@ let elCountrySelect = document.querySelector(".choose-select")
 let elCountryList = document.querySelector(".country-list")
 let elSearchInput = document.querySelector(".search-input")
 let elDarkMode = document.querySelector('#darkMBtn');
+let elLikeCount = document.querySelector(".like-count")
+let elSaveCount = document.querySelector(".save-count")
 
+let likeList = []
+let saveList = []
 //Create Option
 function createOptionFn (){
     countries.forEach(item => {
@@ -11,6 +15,7 @@ function createOptionFn (){
         elOption.textContent = item.capital
         elOption.value = item.capital.toLowerCase()
         elCountrySelect.appendChild(elOption)
+         
     })
 }
 createOptionFn ()
@@ -31,8 +36,8 @@ function renderProduct (arr, list){
     <p class="text-[var(--color-text)]"> <span class="font-semibold text-[14px] leading-[16px] text-[var(--color-text)]">Capital: </span> ${item.capital}</p>
        </div>
        <div class="flex justify-between px-[24px] pb-[20px]">
-       <button class=" text-[var(--color-text)] border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Like</button>
-       <button class=" text-[var(--color-text)] border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Save</button>
+       <button onclick="handleLikeClick(${item.id})" class=" ${item.isLiked ? "bg-red-500 text-white border-red-500" : "border-slate-500"} text-[var(--color-text)] border-[1.5px]  rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Like</button>
+       <button onclick="handleSaveClick(${item.id})" class=" ${item.isSaved ? "bg-purple-500 text-white border-purple-500" : "border-slate-500"} text-[var(--color-text)] border-[1.5px]  rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Save</button>
        <button class=" text-[var(--color-text)] border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">More</button>
        </div>
        
@@ -43,18 +48,54 @@ function renderProduct (arr, list){
 }
 renderProduct(countries, elCountryList)
 
+//Search, select function
+function SearchAndSelect (value, currentValue){
+ if(value == "name"){
+   let filteredArr = countries.filter(item => item[`${value}`].toLowerCase().includes(currentValue.toLowerCase()))
+ renderProduct(filteredArr, elCountryList)
+ }
+ else{
+    if(currentValue == "all"){
+        renderProduct(countries, elCountryList)
+    }
+    else{
+        let filteredArr = countries.filter(item => item[`${value}`].toLowerCase() == (currentValue.toLowerCase()))
+       renderProduct(filteredArr, elCountryList)
+    }
+ }
+}
+
 //Search
-elSearchInput.addEventListener("input", function (){
-    let searchValue = elSearchInput.value.toLowerCase()
-    let filteredSearchValue = countries.filter(item => item.name.toLowerCase().includes(searchValue) ||
-    item.population.toString().includes(searchValue))
-    renderProduct(filteredSearchValue, elCountryList)
-
-})
-
+elSearchInput.addEventListener("input", (evt) => SearchAndSelect("name", evt.target.value))
 //Select
+elCountrySelect.addEventListener("change", (evt) => SearchAndSelect("capital", evt.target.value))
 
 //dark mode
   elDarkMode.addEventListener('click', () => {
     document.body.classList.toggle('dark');
   });
+
+//Like btn 
+function handleLikeClick(id){
+    let findObj = countries.find(item => item.id == id)
+    findObj.isLiked = !findObj.isLiked
+    renderProduct(countries, elCountryList)
+    elLikeCount.textContent = countries.filter(item => item.isLiked).length
+}
+
+function handleLikeBtnClick() {
+    let likeList = countries.filter(item => item.isLiked)
+    renderProduct(likeList, elCountryList)
+}
+
+//Save btn
+function handleSaveClick(id){
+    let findObj = countries.find(item => item.id == id)
+    findObj.isSaved = !findObj.isSaved
+    renderProduct(countries, elCountryList)
+    elSaveCount.textContent = countries.filter(item => item.isSaved).length
+}
+function handleSaveBtnClick() {
+    let saveList = countries.filter(item => item.isSaved)
+    renderProduct(saveList, elCountryList)
+}
