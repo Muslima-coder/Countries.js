@@ -12,7 +12,7 @@ let saveList = []
 function createOptionFn (){
     countries.forEach(item => {
         let elOption = document.createElement("option")
-        elOption.className ="text-black"
+        elOption.className ="bg-[var(--text-bg)]"
         elOption.textContent = item.capital
         elOption.value = item.capital.toLowerCase()
         elCountrySelect.appendChild(elOption)
