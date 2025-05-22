@@ -44,10 +44,10 @@ function renderProduct (arr, list){
        <button class="more-btn text-[var(--color-text)] border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">More</button>
 <div class="modal-container hidden">
   <div class="modal ">
-    <p><strong>Name:</strong> <span>${item.name}</span></p>
-    <p><strong>Population:</strong> <span>${item.population.toLocaleString("ru-RU")}</span></p>
-    <p><strong>Capital:</strong> <span>${item.capital}</span></p>
-    <p><strong>Region:</strong> <span>${item.region}</span></p>
+    <p class="text-[16px] text-[var(--color-text)]"><strong>Name:</strong> <span class="text-[14px] text-[var(--color-text)]">${item.name}</span></p>
+    <p class="text-[16px] text-[var(--color-text)]"><strong>Population:</strong> <span class="text-[14px] text-[var(--color-text)]">${item.population.toLocaleString("ru-RU")}</span></p>
+    <p class="text-[16px] text-[var(--color-text)]"><strong>Capital:</strong> <span class="text-[14px] text-[var(--color-text)]">${item.capital}</span></p>
+    <p class="text-[16px] text-[var(--color-text)]"><strong>Region:</strong> <span class="text-[14px] text-[var(--color-text)]">${item.name}</span></p>
     <button class="close-btn hidden mt-4 text-sm bg-red-500 border border-transparent text-white px-3 py-1 rounded-[5px] hover:bg-transparent hover:border-red-500 hover:text-red-500 duration-300">Close</button>
   </div>
 </div>
@@ -110,7 +110,7 @@ function handleSaveBtnClick() {
     document.body.classList.toggle('dark');
   });
 
-  
+
 //More btn 
 let moreButtons = document.querySelectorAll(".more-btn");
 let closeButtons = document.querySelectorAll(".close-btn");
