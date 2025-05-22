@@ -5,6 +5,7 @@ let elDarkMode = document.querySelector('#darkMBtn');
 let elLikeCount = document.querySelector(".like-count")
 let elSaveCount = document.querySelector(".save-count")
 
+
 let likeList = []
 let saveList = []
 //Create Option
@@ -25,7 +26,7 @@ function renderProduct (arr, list){
     list.innerHTML = null
     arr.forEach(item => {
         let elItem = document.createElement ("li")
-        elItem.className = "w-[264px] rounded-[5px] shadow-md shadow-blue-300 mx-auto sm:mx-0"
+       elItem.className = "relative w-[264px] rounded-[5px] shadow-md shadow-blue-300 mx-auto sm:mx-0"
 
         elItem.innerHTML =`
         <img class="!h-[160px] !w-[260px] object-cover" src="${item.flag}" alt="photo" width="267"  height="160"/>
@@ -38,11 +39,19 @@ function renderProduct (arr, list){
        <div class="flex justify-between px-[24px] pb-[20px]">
        <button onclick="handleLikeClick(${item.id})" class=" ${item.isLiked ? "bg-red-500 text-white border-red-500" : "border-slate-500"} text-[var(--color-text)] border-[1.5px]  rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Like</button>
        <button onclick="handleSaveClick(${item.id})" class=" ${item.isSaved ? "bg-purple-500 text-white border-purple-500" : "border-slate-500"} text-[var(--color-text)] border-[1.5px]  rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Save</button>
-       <button class=" text-[var(--color-text)] border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">More</button>
-       </div>
        
-        `
 
+       <button class="more-btn text-[var(--color-text)] border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">More</button>
+<div class="modal-container hidden">
+  <div class="modal ">
+    <p><strong>Name:</strong> <span>${item.name}</span></p>
+    <p><strong>Population:</strong> <span>${item.population.toLocaleString("ru-RU")}</span></p>
+    <p><strong>Capital:</strong> <span>${item.capital}</span></p>
+    <p><strong>Region:</strong> <span>${item.region}</span></p>
+    <button class="close-btn hidden mt-4 text-sm bg-red-500 border border-transparent text-white px-3 py-1 rounded-[5px] hover:bg-transparent hover:border-red-500 hover:text-red-500 duration-300">Close</button>
+  </div>
+</div>
+        `
         list.appendChild(elItem)
     })
 }
@@ -70,10 +79,6 @@ elSearchInput.addEventListener("input", (evt) => SearchAndSelect("name", evt.tar
 //Select
 elCountrySelect.addEventListener("change", (evt) => SearchAndSelect("capital", evt.target.value))
 
-//dark mode
-  elDarkMode.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-  });
 
 //Like btn 
 function handleLikeClick(id){
@@ -99,3 +104,28 @@ function handleSaveBtnClick() {
     let saveList = countries.filter(item => item.isSaved)
     renderProduct(saveList, elCountryList)
 }
+
+//dark mode
+  elDarkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+
+  
+//More btn 
+let moreButtons = document.querySelectorAll(".more-btn");
+let closeButtons = document.querySelectorAll(".close-btn");
+let modals = document.querySelectorAll(".modal-container");
+
+moreButtons.forEach((btn, item) => {
+  btn.addEventListener("click", () => {
+    modals[item].classList.remove("hidden");
+    closeButtons[item].classList.remove("hidden");
+  });
+});
+
+closeButtons.forEach((btn, item) => {
+  btn.addEventListener("click", () => {
+    modals[item].classList.add("hidden");
+    btn.classList.add("hidden");
+  });
+});
