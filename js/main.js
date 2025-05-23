@@ -41,7 +41,7 @@ function renderProduct (arr, list){
        <div class="flex justify-between px-[24px] pb-[20px]">
        <button onclick="handleLikeClick(${item.id})" class=" ${item.isLiked ? "bg-red-500 text-white border-red-500" : "border-slate-500"} text-[var(--color-text)] border-[1.5px]  rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Like</button>
        <button onclick="handleSaveClick(${item.id})" class=" ${item.isSaved ? "bg-purple-500 text-white border-purple-500" : "border-slate-500"} text-[var(--color-text)] border-[1.5px]  rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">Save</button>
-       <button onclick="handleMoveBtnClick(${item.id})" class="more-btn text-[var(--color-text)] border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">More</button>
+       <button onclick="handleMoreBtnClick(${item.id})" class="more-btn text-[var(--color-text)] border-[1.5px] border-slate-500 rounded-md w-[30%] cursor-pointer hover:w-[31%]  hover:border-blue-500 hover:text-blue-500 duration-300">More</button>
         `
         list.appendChild(elItem)
     })
@@ -103,7 +103,7 @@ function handleSaveBtnClick() {
 
 
 //More btn 
-function handleMoveBtnClick (id){
+function handleMoreBtnClick (id){
   elModalWrapper.classList.remove("scale-0")
   let findObj = countries.find(item => item.id == id)
   console.log(findObj)
@@ -111,7 +111,7 @@ function handleMoveBtnClick (id){
   <div class="flex justify-between items-center">
   <img class="w-[60%]" src="${findObj.flag}" alt="Single flag" width="400" height="300" />
   <div class="w-[40%] text-end">
-      <strong class="font-extrabold inline-block text-[14px] text-[var(--color-text)] mb-[16px]">${findObj.name}</strong>
+      <strong class="font-extrabold inline-block text-[10px] text-[var(--color-text)] mb-[16px]">${findObj.name}</strong>
        <p class="text-[var(--color-text)]"> <span class="font-semibold text-[10px] leading-[16px] text-[var(--color-text)]">Population: </span> ${findObj.population.toLocaleString("ru-RU")}</p>
       <p class="text-[var(--color-text)]"> <span class="font-semibold text-[10px] leading-[16px] text-[var(--color-text)]">Region: </span> ${findObj.name}</p>
       <p class="text-[var(--color-text)]"> <span class="font-semibold text-[04px] leading-[16px] text-[var(--color-text)]">Capital: </span> ${findObj.capital}</p>
