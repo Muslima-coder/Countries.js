@@ -108,7 +108,7 @@ function handleMoreBtnClick (id){
   let findObj = countries.find(item => item.id == id)
   console.log(findObj)
   elModalInner.innerHTML = `
-  <div class="flex justify-between items-center gap-[5px] sm:gap-[0px]">
+  <div class="flex justify-between items-center gap-[3px] sm:gap-[0px]">
   <img class="sm:w-[60%] w-[57%]" src="${findObj.flag}" alt="Single flag" width="400" height="300" />
   <div class="w-[40%] text-end">
       <strong class="sm:font-extrabold font-medium inline-block text-[15px] sm:text-[16px] text-[var(--color-text)] mb-[16px]">${findObj.name}</strong>
