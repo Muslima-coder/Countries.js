@@ -111,10 +111,10 @@ function handleMoveBtnClick (id){
   <div class="flex justify-between items-center">
   <img class="w-[60%]" src="${findObj.flag}" alt="Single flag" width="400" height="300" />
   <div class="w-[40%] text-end">
-      <strong class="font-extrabold inline-block text-[18px] text-[var(--color-text)] mb-[16px]">${findObj.name}</strong>
-       <p class="text-[var(--color-text)]"> <span class="font-semibold text-[14px] leading-[16px] text-[var(--color-text)]">Population: </span> ${findObj.population.toLocaleString("ru-RU")}</p>
-      <p class="text-[var(--color-text)]"> <span class="font-semibold text-[14px] leading-[16px] text-[var(--color-text)]">Region: </span> ${findObj.name}</p>
-      <p class="text-[var(--color-text)]"> <span class="font-semibold text-[14px] leading-[16px] text-[var(--color-text)]">Capital: </span> ${findObj.capital}</p>
+      <strong class="font-extrabold inline-block text-[14px] text-[var(--color-text)] mb-[16px]">${findObj.name}</strong>
+       <p class="text-[var(--color-text)]"> <span class="font-semibold text-[10px] leading-[16px] text-[var(--color-text)]">Population: </span> ${findObj.population.toLocaleString("ru-RU")}</p>
+      <p class="text-[var(--color-text)]"> <span class="font-semibold text-[10px] leading-[16px] text-[var(--color-text)]">Region: </span> ${findObj.name}</p>
+      <p class="text-[var(--color-text)]"> <span class="font-semibold text-[04px] leading-[16px] text-[var(--color-text)]">Capital: </span> ${findObj.capital}</p>
   </div>
   </div>
   `
