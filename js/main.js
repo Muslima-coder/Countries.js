@@ -109,7 +109,7 @@ function handleMoreBtnClick (id){
   console.log(findObj)
   elModalInner.innerHTML = `
   <div class="flex justify-between items-center">
-  <img class="w-[60%]" src="${findObj.flag}" alt="Single flag" width="400" height="300" />
+  <img class="sm:w-[60%] w-[50%]" src="${findObj.flag}" alt="Single flag" width="400" height="300" />
   <div class="w-[40%] text-end">
       <strong class="sm:font-extrabold font-medium inline-block text-[15px] sm:text-[16px] text-[var(--color-text)] mb-[16px]">${findObj.name}</strong>
        <p class="text-[var(--color-text)] leading-[16px]  text-[14px]"> <span class="sm:font-semibold font-normal   text-[14px] leading-[16px] text-[var(--color-text)]">Population: </span> ${findObj.population.toLocaleString("ru-RU")}</p>
